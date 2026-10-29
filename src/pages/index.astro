@@ -1,7 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
 import Sparkle from '../components/Sparkle.astro';
 import { site, linkedinLabel } from '../site';
+import photo from '../assets/vansh.jpeg';
 
 const year = new Date().getFullYear();
 const upcoming = [
@@ -37,8 +39,15 @@ const upcoming = [
             <Sparkle size={30} class="spark spark-b" />
             <Sparkle size={30} class="spark spark-c" />
             <div class="card">
-              <span class="monogram ghost" aria-hidden="true">V</span>
-              <span class="monogram" aria-hidden="true">V</span>
+              <Image
+                class="card-photo"
+                src={photo}
+                alt={`Portrait of ${site.name}`}
+                widths={[400]}
+                format="webp"
+                loading="eager"
+                fetchpriority="high"
+              />
               <span class="stamp">Under maintenance</span>
               <p class="tagline">
                 Something new is being built here. Until it's ready, the best place to find me is LinkedIn.
@@ -90,24 +99,9 @@ const upcoming = [
 
       <div class="portrait">
         <div class="portrait-card">
-          <div class="circle"></div>
-          <svg class="barrier" viewBox="0 0 200 150" aria-hidden="true">
-            <defs>
-              <pattern id="stripes" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-                <rect width="14" height="28" fill="#111"></rect>
-              </pattern>
-            </defs>
-            <rect x="32" y="40" width="10" height="100" fill="#111"></rect>
-            <rect x="158" y="40" width="10" height="100" fill="#111"></rect>
-            <rect x="18" y="138" width="38" height="8" rx="2" fill="#111"></rect>
-            <rect x="144" y="138" width="38" height="8" rx="2" fill="#111"></rect>
-            <rect x="10" y="44" width="180" height="34" rx="4" fill="#fbae17"></rect>
-            <rect x="10" y="44" width="180" height="34" rx="4" fill="url(#stripes)"></rect>
-            <rect x="10" y="88" width="180" height="22" rx="4" fill="#fbae17"></rect>
-            <rect x="10" y="88" width="180" height="22" rx="4" fill="url(#stripes)"></rect>
-            <circle cx="37" cy="30" r="10" fill="#f26b3a"></circle>
-            <circle cx="163" cy="30" r="10" fill="#f26b3a"></circle>
-          </svg>
+          <div class="circle">
+            <Image class="circle-photo" src={photo} alt="" widths={[400]} format="webp" />
+          </div>
           <span class="tag tag-a">Under maintenance</span>
           <span class="tag tag-b">Back soon</span>
         </div>
