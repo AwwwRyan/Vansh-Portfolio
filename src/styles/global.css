@@ -23,15 +23,25 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
+/* green so overscroll / short viewports blend with the hero and footer */
 body {
   margin: 0;
   font-family: var(--sans);
-  background: var(--cream);
+  background: var(--green);
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
   overflow-x: hidden;
+  overflow-x: clip;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }
 
 a {
@@ -306,6 +316,7 @@ ul {
 /* ───────────── Hello ───────────── */
 .hello {
   padding-top: 130px;
+  background: var(--cream);
 }
 
 .hello-grid {
@@ -454,7 +465,8 @@ ul {
 
 /* ───────────── Coming soon ───────────── */
 .soon {
-  margin-top: 90px;
+  /* cream strip under the hanging contact card */
+  border-top: 90px solid var(--cream);
   padding-top: 150px;
   background: var(--green);
   color: var(--cream);
@@ -545,9 +557,35 @@ ul {
 }
 
 /* ───────────── Responsive ───────────── */
+@media (max-width: 1024px) {
+  .nav-links {
+    gap: 24px;
+  }
+
+  .hello-grid > div:first-child,
+  .soon-grid > div:first-child {
+    padding-left: 0;
+  }
+}
+
+/* tablet & phone: single column, stacked hero */
 @media (max-width: 860px) {
+  .nav {
+    padding-block: 20px;
+  }
+
   .nav-links a:not(.pill) {
     display: none;
+  }
+
+  .pill {
+    padding: 10px 18px;
+    font-size: 13px;
+  }
+
+  .stage {
+    --wm: clamp(52px, 15.5vw, 130px);
+    padding-top: 12px;
   }
 
   .wordmark {
@@ -560,52 +598,171 @@ ul {
   }
 
   .below::before {
-    top: 55%;
+    top: 50%;
   }
 
   .card-wrap {
-    width: min(82%, 380px);
+    width: min(86%, 420px);
     margin-inline: auto;
   }
 
-  .right .echo {
-    display: none;
+  .spark-a {
+    left: -20px;
+  }
+
+  .spark-b {
+    left: -26px;
+  }
+
+  .tagline {
+    font-size: 12px;
+    max-width: none;
+    right: 16px;
   }
 
   .right {
     overflow: visible;
   }
 
+  .right .echo {
+    display: none;
+  }
+
   .handles {
     position: static;
+    width: min(86%, 420px);
     margin: 28px auto 0;
     padding: 0;
-    width: min(82%, 380px);
     background: none;
+    font-size: 15px;
+  }
+
+  .hero {
+    padding-bottom: 88px;
   }
 
   .hello {
-    padding-top: 110px;
+    padding-top: 100px;
   }
 
   .hello-grid,
   .soon-grid {
     grid-template-columns: 1fr;
-    gap: 72px;
+    gap: 64px;
   }
 
-  .hello-grid > div:first-child,
-  .soon-grid > div:first-child {
-    padding-left: 0;
+  .hello-grid > div:first-child {
+    text-align: center;
+  }
+
+  .lead,
+  .linkedin-bar {
+    margin-inline: auto;
   }
 
   .portrait {
-    width: min(82%, 330px);
+    width: min(78%, 330px);
+    margin-bottom: -90px;
   }
 
   .tag {
     padding: 11px 22px;
     font-size: 13px;
+  }
+
+  .tag-a {
+    left: -14%;
+  }
+
+  .tag-b {
+    right: -12%;
+  }
+
+  .contact {
+    padding: 20px 28px 24px;
+  }
+
+  .soon {
+    border-top-width: 70px;
+    padding-top: 120px;
+  }
+
+  .echo-soon {
+    display: none;
+  }
+
+  .footer {
+    margin-top: 24px;
+  }
+}
+
+/* small phones */
+@media (max-width: 480px) {
+  .logo {
+    font-size: 21px;
+  }
+
+  .card-wrap,
+  .handles {
+    width: 88%;
+  }
+
+  .spark-a {
+    width: 40px;
+    height: 40px;
+    left: -16px;
+  }
+
+  .spark-b {
+    width: 24px;
+    height: 24px;
+    left: -20px;
+    top: calc(12% + 46px);
+  }
+
+  .stamp {
+    top: 58%;
+    padding: 6px 10px;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+  }
+
+  .disc {
+    width: 96px;
+    height: 96px;
+    font-size: 15px;
+  }
+
+  .hello {
+    padding-top: 84px;
+  }
+
+  .hello-title {
+    font-size: clamp(44px, 13vw, 60px);
+    margin-bottom: 20px;
+  }
+
+  .lead {
+    font-size: 15px;
+  }
+
+  .linkedin-bar {
+    gap: 12px;
+    padding: 14px 20px;
+    font-size: 15px;
+  }
+
+  .portrait {
+    width: 86%;
+  }
+
+  .contact {
+    padding: 18px 20px 22px;
+  }
+
+  .tag {
+    padding: 9px 16px;
+    font-size: 12px;
   }
 
   .tag-a {
@@ -616,8 +773,26 @@ ul {
     right: -8%;
   }
 
-  .echo-soon {
-    display: none;
+  .contact h3 {
+    font-size: 28px;
+  }
+
+  .contact li {
+    font-size: 12.5px;
+  }
+
+  .contact a {
+    overflow-wrap: anywhere;
+  }
+
+  .tl-title {
+    font-size: 22px;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 }
 
