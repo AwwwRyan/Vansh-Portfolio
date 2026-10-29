@@ -1,0 +1,157 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Sparkle from '../components/Sparkle.astro';
+import { site, linkedinLabel } from '../site';
+
+const year = new Date().getFullYear();
+const upcoming = [
+  { title: 'Work', text: 'Selected projects and case studies' },
+  { title: 'Resume', text: 'Education, experience & technical skills' },
+  { title: 'About me', text: 'Languages, activities, hobbies & interests' },
+];
+---
+
+<Layout
+  title={`${site.name} — Portfolio under maintenance`}
+  description={`${site.name}'s portfolio is under maintenance. Continue to the LinkedIn profile in the meantime.`}
+>
+  <!-- ───────────── Hero ───────────── -->
+  <section class="hero">
+    <div class="container">
+      <nav class="nav">
+        <a class="logo" href="/"><Sparkle size={26} />{site.name}</a>
+        <div class="nav-links">
+          <a href="#soon">About me</a>
+          <a href="#soon">Resume</a>
+          <a href="#soon">Work</a>
+          <a class="pill" href={site.linkedin} target="_blank" rel="noopener">Get in touch!</a>
+        </div>
+      </nav>
+
+      <div class="stage">
+        <h1 class="wordmark">PORTFOLIO</h1>
+
+        <div class="below">
+          <div class="card-wrap">
+            <Sparkle size={52} class="spark spark-a" />
+            <Sparkle size={30} class="spark spark-b" />
+            <Sparkle size={30} class="spark spark-c" />
+            <div class="card">
+              <span class="monogram ghost" aria-hidden="true">V</span>
+              <span class="monogram" aria-hidden="true">V</span>
+              <span class="stamp">Under maintenance</span>
+              <p class="tagline">
+                Something new is being built here. Until it's ready, the best place to find me is LinkedIn.
+              </p>
+            </div>
+          </div>
+
+          <div class="right">
+            <div class="echo" aria-hidden="true">
+              <span>TFOLIO</span>
+              <span>TFOLIO</span>
+              <span>TFOLIO</span>
+            </div>
+            <ul class="handles">
+              <li><b>Status:</b> under maintenance</li>
+              <li><b>Next:</b> <a href={site.linkedin} target="_blank" rel="noopener">LinkedIn ↗</a></li>
+              <li><b>Back:</b> soon</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="disc-wrap">
+    <a class="disc" href="#hello">Scroll<br />down</a>
+  </div>
+
+  <!-- ───────────── Hello ───────────── -->
+  <section class="hello" id="hello">
+    <div class="container hello-grid">
+      <div>
+        <h2 class="hello-title">Hello,<br />I'm {site.name}!</h2>
+        <p class="lead">
+          My portfolio is currently <strong>under maintenance</strong> while I put together something worth
+          showing. In the meantime, you can see my work, experience and background on my LinkedIn profile.
+        </p>
+        <a class="linkedin-bar" href={site.linkedin} target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"
+            ></path>
+          </svg>
+          <span>{linkedinLabel}</span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div class="portrait">
+        <div class="portrait-card">
+          <div class="circle"></div>
+          <svg class="barrier" viewBox="0 0 200 150" aria-hidden="true">
+            <defs>
+              <pattern id="stripes" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                <rect width="14" height="28" fill="#111"></rect>
+              </pattern>
+            </defs>
+            <rect x="32" y="40" width="10" height="100" fill="#111"></rect>
+            <rect x="158" y="40" width="10" height="100" fill="#111"></rect>
+            <rect x="18" y="138" width="38" height="8" rx="2" fill="#111"></rect>
+            <rect x="144" y="138" width="38" height="8" rx="2" fill="#111"></rect>
+            <rect x="10" y="44" width="180" height="34" rx="4" fill="#fbae17"></rect>
+            <rect x="10" y="44" width="180" height="34" rx="4" fill="url(#stripes)"></rect>
+            <rect x="10" y="88" width="180" height="22" rx="4" fill="#fbae17"></rect>
+            <rect x="10" y="88" width="180" height="22" rx="4" fill="url(#stripes)"></rect>
+            <circle cx="37" cy="30" r="10" fill="#f26b3a"></circle>
+            <circle cx="163" cy="30" r="10" fill="#f26b3a"></circle>
+          </svg>
+          <span class="tag tag-a">Under maintenance</span>
+          <span class="tag tag-b">Back soon</span>
+        </div>
+        <div class="contact">
+          <h3>Contact</h3>
+          <ul>
+            <li>
+              <Sparkle size={12} />
+              <a href={site.linkedin} target="_blank" rel="noopener">{linkedinLabel}</a>
+            </li>
+            <li><Sparkle size={12} />Portfolio: under maintenance</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── Coming soon ───────────── -->
+  <section class="soon" id="soon">
+    <div class="container soon-grid">
+      <div>
+        <h2 class="section-title">Coming soon</h2>
+        <ul class="timeline">
+          {
+            upcoming.map((item) => (
+              <li>
+                <Sparkle size={22} class="tl-star" />
+                <span class="tl-title">{item.title}</span>
+                <span class="tl-text">{item.text}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="echo echo-soon" aria-hidden="true">
+        <span>SOON</span>
+        <span>SOON</span>
+        <span>SOON</span>
+      </div>
+    </div>
+
+    <footer class="container footer">
+      <span>© {year} {site.name}</span>
+      <a href={site.linkedin} target="_blank" rel="noopener">Continue on LinkedIn ↗</a>
+    </footer>
+  </section>
+</Layout>
